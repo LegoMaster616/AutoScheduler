@@ -41,3 +41,8 @@ function parseURL(url)
   });
   return callNumList;
 }
+
+function validateURL(url)
+{
+  return url.includes("web.stevens.edu/scheduler");
+}
