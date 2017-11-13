@@ -46,3 +46,11 @@ function validateURL(url)
 {
   return url.includes("web.stevens.edu/scheduler");
 }
+
+function generate()
+{
+  var bookmarkletText = createBookmarklet(parseURL($('#scheduleLink').val()), $('autosubmit').is(':checked'));
+
+  $('#bookmarkletResult').removeClass('hidden');
+  $('#bookmarklet').attr('href',bookmarkletText);
+}

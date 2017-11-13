@@ -46,18 +46,23 @@
           <label><input type="checkbox" id="autosubmit"> Auto submit</label>
         </div>
         <div class="form-group">
-          <button type="button" class="btn btn-primary">Generate bookmarklet!</button>
+          <button type="button" class="btn btn-primary" id='generateButton'>Generate bookmarklet!</button>
         </div>
       </form>
       <hr class="hidden">
       <div class="row hidden" id="bookmarkletResult">
         <div class="col-md-12">
-          <h2>Finished Bookmarklet(s)</h2>
+          <h2>Finished Bookmarklet</h2>
           <p>Drag the link to your bookmark bar:</p>
           <a href="#" id="bookmarklet">AutoScheduler</a>
           <a href="#" class="hidden" id="bookmarklet2">AutoScheduler 2</a>
         </div>
       </div>
     </div>
+    <script>
+      $('#generateButton').click(function(){
+        generate();
+      });
+    </script>
   </body>
 </html>
