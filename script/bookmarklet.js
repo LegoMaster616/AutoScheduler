@@ -54,3 +54,17 @@ function generate()
   $('#bookmarkletResult').removeClass('hidden');
   $('#bookmarklet').attr('href',bookmarkletText);
 }
+
+function setUrlError(error)
+{
+  if(error)
+  {
+    $('#scheduleLinkDiv').addClass('has-error');
+    $('#scheduleLinkError').removeClass('hidden');
+  }
+  else
+  {
+    $('#scheduleLinkDiv').removeClass('has-error');
+    $('#scheduleLinkError').addClass('hidden');
+  }
+}

@@ -37,10 +37,13 @@
           </div>
         </div>
       </div>
-      <form>
-        <div class="form-group">
+      <form class="needs-validation">
+        <div class="form-group" id="scheduleLinkDiv">
           <label for="scheduleLink">Stevens scheduler link:</label>
-          <input type="text" class="form-control" id="scheduleLink">
+          <input type="url" class="form-control" id="scheduleLink" required>
+          <span class="help-block hidden" id="scheduleLinkError">
+            Invalid URL!
+          </span>
         </div>
         <div class="form-group">
           <label><input type="checkbox" id="autosubmit"> Auto submit</label>
@@ -54,14 +57,24 @@
         <div class="col-md-12">
           <h2>Finished Bookmarklet</h2>
           <p>Drag the link to your bookmark bar:</p>
-          <a href="#" id="bookmarklet">AutoScheduler</a>
-          <a href="#" class="hidden" id="bookmarklet2">AutoScheduler 2</a>
+          <div id="bookmarkletContainer">
+            <a href="#" id="bookmarklet">AutoScheduler</a>
+            <a href="#" class="" id="bookmarklet2">AutoScheduler 2</a>
+          </div>
         </div>
       </div>
     </div>
     <script>
       $('#generateButton').click(function(){
-        generate();
+        if($('#scheduleLink').val().length>0 && validateURL($('#scheduleLink').val()))
+        {
+          setUrlError(false);
+          generate();
+        }
+        else {
+          console.log('error');
+          setUrlError(true);
+        }
       });
     </script>
   </body>
