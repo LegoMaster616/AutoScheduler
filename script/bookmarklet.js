@@ -19,6 +19,7 @@ Condensed into one line:
 javascript:(function(){var courses=[];var inputs=document.getElementsByName('Callnum');var courseIndex=0;for(var i=0;i<inputs.length&&courseIndex<courses.length;i++){if(inputs[i].getAttribute('type')=='text'){inputs[i].value=courses[courseIndex++];}}document.forms['StuForm'].submit();})();
 */
 
+//Generates the JS code to store in the bookmarklet. Takes in the call number array and whether or not to autosubmit
 function createBookmarklet(callNumList, autoSubmit)
 {
   var str = "javascript:(function(){var courses=[";
@@ -30,6 +31,7 @@ function createBookmarklet(callNumList, autoSubmit)
   return str
 }
 
+//Split apart scheduler URL to get the list of call numbers
 function parseURL(url)
 {
   var callNumList = [];
@@ -42,11 +44,13 @@ function parseURL(url)
   return callNumList;
 }
 
+//Makes sure it's a Stevens scheduler link. Need to do more error checking in the future
 function validateURL(url)
 {
   return url.includes("web.stevens.edu/scheduler");
 }
 
+//Add JS to the link and show it on the page
 function generate()
 {
   var bookmarkletText = createBookmarklet(parseURL($('#scheduleLink').val()), $('autosubmit').is(':checked'));
@@ -55,6 +59,7 @@ function generate()
   $('#bookmarklet').attr('href',bookmarkletText);
 }
 
+//If invalid URL, set form to has-error
 function setUrlError(error)
 {
   if(error)
