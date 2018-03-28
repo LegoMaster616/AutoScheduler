@@ -47,7 +47,7 @@ function parseURL(url)
 //Makes sure it's a Stevens scheduler link. Need to do more error checking in the future
 function validateURL(url)
 {
-  return url.includes("web.stevens.edu/scheduler");
+  return url.includes("web.stevens.edu/scheduler") || url.includes("sitscheduler.com");
 }
 
 //Add JS to the link and show it on the page
