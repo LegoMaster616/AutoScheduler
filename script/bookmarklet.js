@@ -53,7 +53,7 @@ function validateURL(url)
 //Add JS to the link and show it on the page
 function generate()
 {
-  var bookmarkletText = createBookmarklet(parseURL($('#scheduleLink').val()), $('autosubmit').is(':checked'));
+  var bookmarkletText = createBookmarklet(parseURL($('#scheduleLink').val()), $('#autosubmit').is(':checked'));
 
   $('#bookmarkletResult').removeClass('hidden');
   $('#bookmarklet').attr('href',bookmarkletText);
